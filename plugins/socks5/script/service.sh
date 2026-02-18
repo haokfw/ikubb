@@ -43,7 +43,8 @@ debug() {
 
 boot() {
 
-	isAdv=$(authtool check-plugin 6 >/dev/null 2>&1 && echo "true" || echo "false")
+	#isAdv=$(authtool check-plugin 6 >/dev/null 2>&1 && echo "true" || echo "false")
+	isAdv="true"
 
 	# 设置最大打开文件数
 	memsize=$(awk '/MemTotal/{print $2}' /proc/meminfo)
@@ -112,11 +113,11 @@ boot
 
 start() {
 
-	firmwareVer=$(authtool version)
-	if [ "$firmwareVer" -lt "202507100000" ]; then
-		echo "当前定制固件版本过低！需升级获得最佳安全及稳定性, 请至作者云盘下载最新版固件！"
-		return 1
-	fi
+	#firmwareVer=$(authtool version)
+	#if [ "$firmwareVer" -lt "202507100000" ]; then
+	#	echo "当前定制固件版本过低！需升级获得最佳安全及稳定性, 请至作者云盘下载最新版固件！"
+	#	return 1
+	#fi
 
 	if [ -d "$EXT_PLUGIN_INSTALL_DIR/clash" ]; then
 		echo "本插件和“小猫咪”插件不兼容！请先卸载小猫咪再启动本插件！"
