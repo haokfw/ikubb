@@ -72,10 +72,6 @@ install()
 	cp -rf $INSTALL_DIR/bin/yamls $EXT_PLUGIN_CONFIG_DIR/$PLUGIN_NAME
 	cp -rf $INSTALL_DIR/bin/jsons $EXT_PLUGIN_CONFIG_DIR/$PLUGIN_NAME
 
-	# 确保yamls目录下的配置文件存在
-    touch $EXT_PLUGIN_CONFIG_DIR/$PLUGIN_NAME/yamls/proxies.yaml
-    touch $EXT_PLUGIN_CONFIG_DIR/$PLUGIN_NAME/yamls/rules.yaml
-
 	debug "创建配置文件软连接"
 	rm -rf $INSTALL_DIR/bin/configs $INSTALL_DIR/bin/yamls $INSTALL_DIR/bin/jsons $INSTALL_DIR/bin/ruleset
 	ln -sf $EXT_PLUGIN_CONFIG_DIR/$PLUGIN_NAME/configs $INSTALL_DIR/bin/configs

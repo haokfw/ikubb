@@ -31,12 +31,5 @@ rule-providers:
     url: "https://routerostop.oss-cn-shanghai.aliyuncs.com/plugins/clash-ruleset/sk5_block_rules.yaml"
     path: ./ruleset/block_rules.yaml
     interval: 86400
-  cn:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://routerostop.oss-cn-shanghai.aliyuncs.com/resources/ShellCrash-master/bin/geodata/mrs_geosite_cn.mrs"
-    path: ./ruleset/cn.mrs
-    interval: 86400
 rules:
   - MATCH,REJECT
