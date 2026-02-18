@@ -71,6 +71,10 @@ install()
 	# 这几个目录下的安装文件不会被用户修改，所以版本更新时始终将新版文件复制过去，确保更新
 	cp -rf $INSTALL_DIR/bin/yamls $EXT_PLUGIN_CONFIG_DIR/$PLUGIN_NAME
 	cp -rf $INSTALL_DIR/bin/jsons $EXT_PLUGIN_CONFIG_DIR/$PLUGIN_NAME
+  
+  # 确保yamls目录下的配置文件存在
+  touch $EXT_PLUGIN_CONFIG_DIR/$PLUGIN_NAME/yamls/proxies.yaml
+  touch $EXT_PLUGIN_CONFIG_DIR/$PLUGIN_NAME/yamls/rules.yaml
 
 	debug "创建配置文件软连接"
 	rm -rf $INSTALL_DIR/bin/configs $INSTALL_DIR/bin/yamls $INSTALL_DIR/bin/jsons $INSTALL_DIR/bin/ruleset
