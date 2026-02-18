@@ -1306,8 +1306,9 @@ __show_status() {
 	local status=0
 	local runningStatus=""
 	local version=""
-	local adMessage=""
-	local isTry=""
+	local adMessage=$(cat $CRASHDIR/configs/usradmsg 2>/dev/null)
+    local isAdv="true"
+    local isTry="false"
 	local fdCount=0
 	local vmSize=0
 	local vmRSS=0
@@ -1336,10 +1337,10 @@ __show_status() {
 		fi
 	fi
 
-	adMessage=$(cat $CRASHDIR/configs/usradmsg 2>/dev/null)
-	if [ -z "$adMessage" ]; then
-		adMessage=$(authtool admessage)
-	fi
+	#adMessage=$(cat $CRASHDIR/configs/usradmsg 2>/dev/null)
+	#if [ -z "$adMessage" ]; then
+	#	adMessage=$(authtool admessage)
+	#fi
 
 	json_append __json_result__ status:int
 	json_append __json_result__ runningStatus:str
